@@ -1,6 +1,5 @@
 <?php
-session_start();
-//include 'menu.php'; 
+include 'auth/auth.php'; 
 
 // Verificar si el usuario está autenticado
 if (!isset($_SESSION['nombre_usuario'])) {

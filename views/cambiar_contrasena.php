@@ -1,4 +1,5 @@
 <?php
+include 'auth/auth.php'; 
 require '../db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -27,29 +28,6 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Cambiar Contraseña de Otros Usuarios</title>
-</head>
-<body>
-    <h1>Cambiar Contraseña de Otros Usuarios</h1>
-    <form method="POST" action="cambiar_contrasena.php">
-        <select name="usuario_id" required>
-            <option value="">Seleccione un usuario</option>
-            <?php foreach ($usuarios as $usuario): ?>
-                <option value="<?= htmlspecialchars($usuario['id']) ?>">
-                    <?= htmlspecialchars($usuario['usuario']) ?>
-                </option>
-            <?php endforeach; ?>
-        </select>
-        <input type="password" name="nueva_password" placeholder="Nueva Contraseña" required>
-        <button type="submit">Actualizar Contraseña</button>
-    </form>
-</body>
-</html>
-
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cambiar Contraseña</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -72,7 +50,11 @@ $usuarios = $stmt->fetchAll(PDO::FETCH_ASSOC);
                         <label for="usuario_id" class="form-label">Seleccionar Usuario</label>
                         <select name="usuario_id" id="usuario_id" class="form-select" required>
                             <option value="">Seleccione un usuario</option>
-                            <!-- Aquí deben ir los usuarios de la base de datos -->
+                            <?php foreach ($usuarios as $usuario): ?>
+                                <option value="<?= htmlspecialchars($usuario['id']) ?>">
+                                    <?= htmlspecialchars($usuario['usuario']) ?>
+                                </option>
+                            <?php endforeach; ?>
                         </select>
                     </div>
                     <div class="mb-3">
