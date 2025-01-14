@@ -14,6 +14,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($user && md5($contrasena)== $user['password']) {
         // Iniciar sesión
         $_SESSION['nombre_usuario'] = $nombre_usuario;
+        $_SESSION['id_evento'] = 1;
+        $_SESSION['evento'] = 'Campamento 2025 S.O.S';
         header('Location: dashboard.php');
         exit;
     } else {

@@ -18,8 +18,8 @@ $usuario = isset($_SESSION['nombre_usuario']) ? $_SESSION['nombre_usuario'] : nu
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                         <li><a class="dropdown-item" href="cambiar_contrasena.php">Cambiar Contraseña</a></li>
-                        <li><a class="dropdown-item" href="logout.php">Cerrar sesión</a></li>
-                        <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        <li><a class="dropdown-item" href="../logout.php">Cerrar sesión</a></li>
+                        
                     </ul>
                 </li>
             <?php else: ?>
